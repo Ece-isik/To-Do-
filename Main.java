@@ -93,6 +93,7 @@ public class Main implements ActionListener {
     public void createAddButtons(){
         panelEast = new JPanel();
         panelEast.setPreferredSize(new Dimension(150,500));
+        list.explanation();
         list.add();
         list.delete();
         window.add(panelEast, BorderLayout.EAST);
