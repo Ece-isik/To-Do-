@@ -52,7 +52,7 @@ public class Main implements ActionListener {
         ImageIcon tick = new ImageIcon("C:\\Users\\pc\\IdeaProjects\\ToDoList\\src\\tick2.png");
 
         title.createTitlePanel();
-        tabbedPane.addTab("Title", tick, title.panel1, "Crete title");
+        tabbedPane.addTab("Title", tick, title.panel1, "Create title");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
         date_time.spinnerDate();
@@ -74,7 +74,7 @@ public class Main implements ActionListener {
         listModel = new DefaultListModel();
         jList = new JList(listModel);
         jList.setBackground(Color.LIGHT_GRAY);
-        jList.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        jList.setFont(new Font("Bahnschrift", Font.ITALIC, 14));
         scrollPane = new JScrollPane(jList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBorder(BorderFactory.createTitledBorder(border, "List"));
         scrollPane.setPreferredSize(new Dimension(250, 320));
