@@ -134,7 +134,15 @@ public class List implements Comparable<List>{
             System.out.println("List is empty!! JList cannot be created.");
         } main.jList.updateUI();
     }
-
+    
+ public void explanation(){
+        JLabel label = new JLabel("<html><body>After creating each<br>to-do, click on \"Save\"<br>button to see it on" +
+                "<br>the screen.<br>If you would like<br>to delete a to-do<br>first select, and then" +
+                "<br>click on \"Delete\" button.</body></html>");
+        label.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
+        main.panelEast.add(label);
+    }
+    
     public String getTitle() {
         return title;
     }
