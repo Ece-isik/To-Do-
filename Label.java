@@ -67,7 +67,8 @@ public class Label {
 
         jPanel = new JPanel(new BorderLayout());
 
-        jLabel4 = new JLabel("Select a label, then click on \"Add\" button. Click on \"Save\" button to finish.");
+        jLabel4 = new JLabel("<html><body>Select a label below, then click on \"Add\" button.<br>" +
+                "Then, click on \"Save\" button to finish.</body></html>");
         jLabel4.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
         listWindow.add(jLabel4, BorderLayout.NORTH);
 
@@ -150,7 +151,7 @@ public class Label {
         panelB.add(jLabel3);
 
         button3 = new JButton("Create");
-        button3.setToolTipText("Create new labels to add into combo box");
+        button3.setToolTipText("Create new labels");
         button3.setPreferredSize(new Dimension(100, 25));
         button3.addActionListener(this.main);
         button3.setActionCommand("button3");
