@@ -35,7 +35,7 @@ public class Label {
         labelWindow.setLocationRelativeTo(null);
 
         jLabel = new JLabel("(Write a label, then click on \"Create\" button.)");
-        jLabel.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        jLabel.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
         labelWindow.add(jLabel, BorderLayout.NORTH);
 
         textField = new JTextField();
@@ -68,7 +68,7 @@ public class Label {
         jPanel = new JPanel(new BorderLayout());
 
         jLabel4 = new JLabel("Select a label, then click on \"Add\" button. Click on \"Save\" button to finish.");
-        jLabel4.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        jLabel4.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
         listWindow.add(jLabel4, BorderLayout.NORTH);
 
         button4 = new JButton("Add"); // Button to add labels
@@ -133,6 +133,7 @@ public class Label {
         panelA.setBorder(BorderFactory.createTitledBorder(main.border, "Add"));
 
         jLabel2 = new JLabel("Click button to add labels to your to-do:");
+        jLabel2.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
         panelA.add(jLabel2);
         button2 = new JButton("Add");
         button2.setToolTipText("Add labels for the list");
@@ -145,6 +146,7 @@ public class Label {
         JPanel panelB = new JPanel();
         panelB.setBorder(BorderFactory.createTitledBorder(main.border, "Create"));
         jLabel3 = new JLabel("Click button to create new labels:");
+        jLabel3.setFont(new Font("Bahnschrift", Font.ITALIC, 12));
         panelB.add(jLabel3);
 
         button3 = new JButton("Create");
