@@ -62,10 +62,16 @@ public class File {
             String msg = "";
             for (int i = 0; i < list.list.size(); i++) {
                 for (int j = 0; j < list.list.get(i).getLabel().size(); j++) {
-                    msg += list.list.get(i).getLabel().get(j);
-                    msg += " ";
+                    if(list.list.get(i).getLabel().size()>1) {
+                        msg += list.list.get(i).getLabel().get(j);
+                        msg += " -- ";
+                    }else{
+                        msg += list.list.get(i).getLabel().get(j);
+                        msg += " ";
+                    }
                 }
-                bw.write(list.list.get(i).getTitle() + " || " + list.list.get(i).getDate_time() + " || " + msg);
+                String strDate = format.format(list.list.get(i).getDate_time()); // String format of the date
+                bw.write(list.list.get(i).getTitle() + " -- " + strDate + " -- " + msg);
                 bw.newLine();
             }bw.close();
             System.out.println(fileName + " is saved as file.");
@@ -88,8 +94,18 @@ public class File {
             BufferedReader br = new BufferedReader(fr);
             main.listModel.removeAllElements(); // remove elements from list model
             String line = null;
+             ArrayList<String> newLabelList;
             while ((line = br.readLine()) != null) {
+                newLabelList = new ArrayList<>();
                 main.listModel.addElement(line + "\n");
+                String[] arr = line.split(" -- ", 0); // split the line to add into the ArrayList
+                for(int i=2; i< arr.length; i++){
+                    newLabelList.add(arr[i]);
+                }
+                Date date = format.parse(arr[1]);
+                list.list.add(new List(arr[0], date, newLabelList));
+                list.setLabel(newLabelList);
+                list.setLabel(null);
             }
             br.close();
 
