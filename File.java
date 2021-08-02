@@ -56,22 +56,18 @@ public class File {
             main.window.setTitle(fileName);
         }
         try {
-            java.io.File file = new java.io.File(fileDirectory + fileName);
+           java.io.File file = new java.io.File(fileDirectory + fileName);
             FileOutputStream fos = new FileOutputStream(file);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-            String msg = "";
+
             for (int i = 0; i < list.list.size(); i++) {
+                String msg = " ";
                 for (int j = 0; j < list.list.get(i).getLabel().size(); j++) {
-                    if(list.list.get(i).getLabel().size()>1) {
-                        msg += list.list.get(i).getLabel().get(j);
                         msg += " -- ";
-                    }else{
                         msg += list.list.get(i).getLabel().get(j);
-                        msg += " ";
-                    }
                 }
                 String strDate = format.format(list.list.get(i).getDate_time()); // String format of the date
-                bw.write(list.list.get(i).getTitle() + " -- " + strDate + " -- " + msg);
+                bw.write(list.list.get(i).getTitle() + " -- " + strDate + msg);
                 bw.newLine();
             }bw.close();
             System.out.println(fileName + " is saved as file.");
@@ -97,18 +93,21 @@ public class File {
              ArrayList<String> newLabelList;
             while ((line = br.readLine()) != null) {
                 newLabelList = new ArrayList<>();
-                main.listModel.addElement(line + "\n");
-                String[] arr = line.split(" -- ", 0); // split the line to add into the ArrayList
+                String[] arr = line.split(" -- ", 0);
                 for(int i=2; i< arr.length; i++){
                     newLabelList.add(arr[i]);
                 }
                 Date date = format.parse(arr[1]);
                 list.list.add(new List(arr[0], date, newLabelList));
                 list.setLabel(newLabelList);
-                list.setLabel(null);
+                for(int t=0;t<newLabelList.size();t++){
+                    newLabelList.remove(t);
+                }
             }
+            list.print();
+            list.printJList();
+            main.setNull();
             br.close();
-
         } catch (Exception e) {
             System.out.println("File is not opened.");
         }
