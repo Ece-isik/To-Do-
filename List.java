@@ -113,13 +113,12 @@ public class List implements Comparable<List>{
     }
     public void printJList() { // add elements into JList
         main.listModel.removeAllElements(); // remove all elements in list model
-        if (list != null) {
+         if (list != null) {
             for (int t = 0; t < list.size(); t++) {
                 String labelText = "";
-
-                if (label.size() == 0) {
+                if (list.get(t).getLabel().size() == 0) {
                     labelText = "";
-                    main.listModel.addElement(list.get(t).getTitle() + " // " + list.get(t).getDate_time());
+                    main.listModel.addElement(list.get(t).getTitle() + " -- " + list.get(t).getDate_time());
                 } else {
                     for (int i = 0; i < list.get(t).label.size(); i++) {
                         labelText += "#";
@@ -127,7 +126,7 @@ public class List implements Comparable<List>{
                         labelText += " ";
                     }
 
-                    main.listModel.addElement(list.get(t).getTitle() + " // " + list.get(t).getDate_time() + " // " + labelText);
+                    main.listModel.addElement(list.get(t).getTitle() + " -- " + list.get(t).getDate_time() + " -- " + labelText);
                 }
             }
         } else {
