@@ -92,17 +92,15 @@ public class File {
             String line = null;
              ArrayList<String> newLabelList;
             while ((line = br.readLine()) != null) {
-                newLabelList = new ArrayList<>();
+                 newLabelList = new ArrayList<>();
+                list.label = new ArrayList<>();
                 String[] arr = line.split(" -- ", 0);
                 for(int i=2; i< arr.length; i++){
                     newLabelList.add(arr[i]);
                 }
                 Date date = format.parse(arr[1]);
-                list.list.add(new List(arr[0], date, newLabelList));
                 list.setLabel(newLabelList);
-                for(int t=0;t<newLabelList.size();t++){
-                    newLabelList.remove(t);
-                }
+                list.list.add(new List(arr[0], date, newLabelList));
             }
             list.print();
             list.printJList();
