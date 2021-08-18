@@ -14,7 +14,8 @@ public class File {
     JPanel panel3, panel;
     JButton button1, button2, button3;
     JLabel label;
-
+    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+    
     public File(Main main, List list) {
         this.main=main;
         this.list=list;
